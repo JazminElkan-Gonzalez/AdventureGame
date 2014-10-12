@@ -38,20 +38,20 @@ def create_world ():
 
     mh353 = Room('Riccardo Office', "Riccardo's office is on the 3rd floor of Milas Hall. ")
     mh3rd = Room('Milas Hall Third Floor', "There are many professor's offices here")
-    mh2nd = Room('Milas Hall Second Floor')
-    mh1st = Room('Milas Hall First Floor')
-    oval = Room('Oval')
-    dhall = Room('Dining Hall')
+    mh2nd = Room('Milas Hall Second Floor', "There are musical instruments and rooms to offices.")
+    mh1st = Room('Milas Hall First Floor', "There is a grand set of stairs.")
+    oval = Room('Oval', "Smack in the center of Olin College.")
+    dhall = Room('Dining Hall', "Om nom nom.")
 
-    ac1st = Room('Academic Center First Floor')
-    ac113 = Room('Academic Center 113')
-    cc1st = Room('Campus Center First Floor')
-    westh = Room('West Hall')
-    easth1 = Room('East Hall 1')
-    easth2 = Room('East Hall 2')
-    easth3 = Room('East Hall 3')
-    easth4 = Room('East Hall 4')
-    babson = Room('Babson College')
+    ac1st = Room('Academic Center First Floor', "Where dreams go to die.")
+    ac113 = Room('Academic Center 113', "The best class ever is taught here.")
+    cc1st = Room('Campus Center First Floor', "Contains the dining hall and nothing else of relevance.")
+    westh = Room('West Hall', "Only children live here. Why go here?")
+    easth1 = Room('East Hall 1', "What's that smell...")
+    easth2 = Room('East Hall 2', "Much color. Very art. Wow.")
+    easth3 = Room('East Hall 3', "Home sweet home.")
+    easth4 = Room('East Hall 4', "Too many stairs.")
+    babson = Room('Babson College', "Bro.")
 
     biconnect(mh353, 'east',  mh3rd)
     biconnect(mh3rd, 'down',  mh2nd)
@@ -84,7 +84,7 @@ def create_world ():
     MobileThing('math-book', oval)
 
     Computer('hal-9000', ac113)
-    Computer('johnny-5', easth)
+    Computer('johnny-5', easth1)
 
     Professor('Riccardo',mh353,random.randint(1,5),2)
     
