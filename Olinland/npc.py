@@ -4,8 +4,8 @@ import random
 
 class NPC (Person):
 
-    def __init__ (self,name,loc,restlessness,miserly):
-        Person.__init__(self,name,loc)
+    def __init__ (self,name,loc,restlessness,miserly,description):
+        Person.__init__(self,name,loc,description)
         self._restlessness = restlessness
         self._miserly = miserly
         

@@ -70,23 +70,23 @@ def create_world ():
 
     # The player is the first 'thing' that has to be created
 
-    Player('Blubbering-Fool', oval)
+    Player('Blubbering-Fool', oval, "You're a Blubbering-Fool")
 
-    Radar('handy radar',mh353) 
-    Thing('blackboard', ac113)
-    Thing('lovely-trees', oval)
-    Thing('grass', oval)
-    MobileThing('muffin', easth1)
-    MobileThing('cell-phone', easth3)
-    MobileThing('map', dhall)
-    MobileThing('bean-bag', easth4)
-    MobileThing('cs-book', oval)
-    MobileThing('math-book', oval)
+    Radar('handy radar',mh353, "A nifty wifty little dood-dah.") 
+    Thing('blackboard', ac113, "Singing in the dead of the night.")
+    Thing('lovely-trees', oval, "You must be seeing things.")
+    Thing('grass', oval, "Not removable.")
+    MobileThing('muffin', easth1, "What is in this mysterious package of nom?")
+    MobileThing('cell-phone', easth3, "Won't work at Olin anyway.")
+    MobileThing('map', dhall, "Really? This map is irrelevant. Olin is too small.")
+    MobileThing('bean-bag', easth4, "Bean-y.")
+    MobileThing('cs-book', oval, "Book of wonders.")
+    MobileThing('math-book', oval, "Book of death.")
 
-    Computer('hal-9000', ac113)
-    Computer('johnny-5', easth1)
+    Computer('hal-9000', ac113, "It's friendly voice fills you with feelings of uncertainty.")
+    Computer('johnny-5', easth1, "Johnny-5 is alive.")
 
-    Professor('Riccardo',mh353,random.randint(1,5),2)
+    Professor('Riccardo',mh353,random.randint(1,5),2, "Awesomesauce.")
     
     homeworks = ['hw-1', 
                  'hw-2',
@@ -94,30 +94,43 @@ def create_world ():
                  'hw-4',
                  'hw-5',
                  'hw-6']
-    
+
+    hwNumOld = 0
+    hwNum = 1
     for homework in homeworks:
         Homework(homework,
-                 random.choice(Room.rooms))
+                 random.choice(Room.rooms), "Distress level = " + str(hwNum + hwNumOld))
+        hwNumOld = hwNum
+        hwNum = hwNum + hwNumOld        
 
     students = ['Frankie Freshman',
                 'Joe Junior',
                 'Sophie Sophomore',
                 'Cedric Senior']
 
-    for student in students:
-        NPC(student,
+    studentDescriptions = ['He will always be a Freshman.',
+                           'Pretty sure his mother is a kangaroo.',
+                           'An actual person at Olin!',
+                           "Hopefully he won't die in the tournament!"]
+
+    for i in range(len(students)):
+        NPC(students[i],
             random.choice(Room.rooms),
             random.randint(1,5),
-            random.randint(1,5))
+            random.randint(1,5),
+            studentDescriptions[i])
 
     trolls = ['Polyphemus',
               'Gollum']
+    trollDescriptions = ['Might be Greek.',
+                         'Kid needs a bath.']
 
-    for troll in trolls:
-      Troll(troll,
+    for j in range(len(trolls)):
+      Troll(trolls[j],
             random.choice(Room.rooms),
             random.randint(1,3),
-            random.randint(1,3))
+            random.randint(1,3),
+            trollDescriptions[j])
 
 
 VERBS = {

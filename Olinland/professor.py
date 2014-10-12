@@ -4,8 +4,8 @@ import random
 
 class Professor (NPC):
 
-      def __init__ (self,name,loc,restlessness,professorial):
-      	  NPC.__init__(self,name,loc,restlessness,100)
+      def __init__ (self,name,loc,restlessness,professorial,description):
+      	  NPC.__init__(self,name,loc,restlessness,100,description)
           self._professorial = professorial
 
       _topics = ['Turing machines',

@@ -2,8 +2,8 @@ from thing import *
 
 class MobileThing (Thing):
 
-    def __init__ (self,name,loc):
-        Thing.__init__(self,name,loc)
+    def __init__ (self,name,loc,description):
+        Thing.__init__(self,name,loc,description)
         self._original_location = loc
 
     def move (self,loc):

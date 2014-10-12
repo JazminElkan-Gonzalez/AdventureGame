@@ -64,6 +64,10 @@ class Look (Verb):
         Player.me.look_around()
         return SAME_ROUND
 
+    def action1 (self, thing):
+        Player.me.say(thing.description())
+        return SAME_ROUND
+
 
 class Wait (Verb):
 
