@@ -35,7 +35,6 @@ def biconnect (fr,dir,to):
 
 
 def create_world ():
-
     mh353 = Room('Riccardo Office', "Riccardo's office is on the 3rd floor of Milas Hall. ")
     mh3rd = Room('Milas Hall Third Floor', "There are many professor's offices here")
     mh2nd = Room('Milas Hall Second Floor', "There are musical instruments and rooms to offices.")
@@ -72,7 +71,8 @@ def create_world ():
 
     Player('Blubbering-Fool', oval, "You're a Blubbering-Fool")
 
-    Radar('handy radar',mh353, "A nifty wifty little dood-dah.") 
+    # Radar('handy radar',mh353, "A nifty wifty little dood-dah.") 
+    Radar('handy radar',oval, "A nifty wifty little dood-dah.") 
     Thing('blackboard', ac113, "Singing in the dead of the night.")
     Thing('lovely-trees', oval, "You must be seeing things.")
     Thing('grass', oval, "Not removable.")
