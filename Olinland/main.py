@@ -136,6 +136,7 @@ def create_world ():
 VERBS = {
     'quit' : Quit(),
     'look' : Look(),
+    'peek' : Peek(),
     'wait' : Wait(),
     'take' : Take(),
     'drop' : Drop(),

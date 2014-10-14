@@ -3,30 +3,30 @@ from player import *
 
 class Thing (WObject):
 
-    def __init__ (self,name,loc,description):
+    def __init__ (self,name,loc, description):
         WObject.__init__(self,name)
         self._location = loc
-        self._description = description
         loc.add_thing(self)
+        self._description = description
 
     def use (self,actor):
         actor.say('I try to use '+self.name()+' but nothing happens')
 
     def take (self,actor):
-        actor.say('I try to take '+self.name()+" but can't")
+        actor.say("I cant take that")
 
     def drop (self,actor):
-        print actor.name(),'is not carrying',self.name()
+        actor.say("I dont have that")
 
     def give (self,actor,target):
         print actor.name(),'is not carrying',self.name()
 
     def location (self):
         return self._location
-
-    def description(self):
-        return self._description
         
+    def description (self):
+        return self._description
+
     def is_in_limbo (self):
         return self.location() is None
 

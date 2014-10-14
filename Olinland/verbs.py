@@ -69,6 +69,12 @@ class Look (Verb):
         return SAME_ROUND
 
 
+class Peek (Verb):
+
+    def action0 (self):
+        Player.me.peek_around()
+        return SAME_ROUND
+
 class Wait (Verb):
 
     def action0 (self):

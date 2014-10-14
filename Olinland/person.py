@@ -6,9 +6,19 @@ class Person (MobileThing):    # Container...
         MobileThing.__init__(self,name,loc,description)
         self._max_health = 3
         self._health = self._max_health
+        self._inventory = []
 
     def health (self):
         return self._health
+
+    def inventory (self):
+        return self._inventory
+
+    def add_thing(self, t):
+        self._inventory.append(t)
+
+    def del_thing (self,t):
+        self._inventory = [x for x in self._inventory if x is not t]
 
     def reset_health (self):
         self._health = self._maxHealth
@@ -32,8 +42,21 @@ class Person (MobileThing):    # Container...
     # same location as this person are holding/carrying
 
     def peek_around (self):
-        # FIX ME
-        return []
+        things_around = []
+        if self.people_around():
+            for person in self.people_around():
+                if person.inventory():
+                    invent = ""
+                    for item in person.inventory():
+                        things_around.append(item)
+                        invent = invent + item.name() + ", "
+                    print person.name() + "'s inventroy is: " + invent 
+                else:
+                    print person.name() + "'s inventory is empty"
+        else:
+            print "no one is here. Do you need... help?"
+        return things_around
+
 
     def lose (self,t,loseto):
         self.say('I lose ' + t.name())
@@ -66,6 +89,9 @@ class Person (MobileThing):    # Container...
     def die (self):
         self.location().broadcast('An earth-shattering, soul-piercing scream is heard...')
         self.destroy()
+        if self._inventory:
+            for item in self._inventory:
+                item.drop(self)
         
 
     def enter_room (self):
