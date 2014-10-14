@@ -20,6 +20,7 @@ class Player (Person):
     # given its name.  The thing may be in the possession of
     # the place, or in the possession of a person at the place.
    
+
    
     def thing_named (self,name):
         for x in self.location().contents():
