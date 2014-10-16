@@ -9,4 +9,7 @@ class Homework (MobileThing):
     def is_homework (self):
         return True
 
-    # FIX ME
+    def finish_homework (self):
+    	self._name = "done-" + self._name
+    	self._description = "A homework. This homework is done."
+
