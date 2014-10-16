@@ -126,11 +126,12 @@ def create_world ():
                          'Kid needs a bath.']
 
     for j in range(len(trolls)):
-      Troll(trolls[j],
+        Troll(trolls[j],
             random.choice(Room.rooms),
             random.randint(1,3),
             random.randint(1,3),
             trollDescriptions[j])
+
 
 
 VERBS = {

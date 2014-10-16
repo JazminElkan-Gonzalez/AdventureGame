@@ -22,6 +22,6 @@ class Clock (object):
                 fun, pri = self._regi[i]
                 if priority <= pri:
                     self._regi.insert(i, (function,priority))
+                    break
         else:
-            print "resiakdfja;lskdfj;alskdfj"
             self._regi.append((function, priority))

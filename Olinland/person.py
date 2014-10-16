@@ -46,15 +46,8 @@ class Person (MobileThing):    # Container...
         if self.people_around():
             for person in self.people_around():
                 if person.inventory():
-                    invent = ""
                     for item in person.inventory():
                         things_around.append(item)
-                        invent = invent + item.name() + ", "
-                    print person.name() + "'s inventroy is: " + invent 
-                else:
-                    print person.name() + "'s inventory is empty"
-        else:
-            print "no one is here. Do you need... help?"
         return things_around
 
 
