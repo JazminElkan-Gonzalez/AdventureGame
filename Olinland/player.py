@@ -14,7 +14,7 @@ class Player (Person):
 
     def __init__ (self,name,loc,description):
         Person.__init__(self,name,loc,description)
-        Player.me = self
+        Player.me = self 
 
     # Grab any kind of thing from player's location, 
     # given its name.  The thing may be in the possession of

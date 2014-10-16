@@ -13,7 +13,7 @@ class Thing (WObject):
         actor.say('I try to use '+self.name()+' but nothing happens')
 
     def take (self,actor):
-        actor.say("I cant take that")
+        actor.say(self.name() + " Can't be taken")
 
     def drop (self,actor):
         actor.say("I dont have that")

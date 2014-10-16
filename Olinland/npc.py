@@ -8,7 +8,7 @@ class NPC (Person):
         Person.__init__(self,name,loc,description)
         self._restlessness = restlessness
         self._miserly = miserly
-        Player.clock.register(self.move_and_take_stuff, 4)
+        Player.clock.register(self.move_and_take_stuff, 5)
         
     def move_and_take_stuff (self,time):
         if not self.is_in_limbo():
