@@ -182,6 +182,7 @@ def main ():
         if response[0] in VERBS:
             result = VERBS[response[0]].act(response[1:])
             if result == NEXT_ROUND:
+                Player.me.clock.tick()
                 Player.me.look_around()
         else:
             print 'What??'
