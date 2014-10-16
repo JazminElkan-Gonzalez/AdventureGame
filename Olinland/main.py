@@ -175,7 +175,7 @@ def main ():
     create_world()
     
     Player.me.look_around()
-
+    Player.clock.register(print_tick_action, 1)
     while True:
         response = read_player_input ()
         print

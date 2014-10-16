@@ -5,20 +5,23 @@ class Clock (object):
         self._regi = []
 
     def tick(self):
-		self._time = self._time + 1
-		print "The clock ticks " + str(self._time)
+        self._time = self._time + 1
+        if self._regi:
+            for fun, pri in self._regi:
+                fun(self._time)
 
     def time(self):
-    	return self._time
+        return self._time
 
     def regi(self):
-    	self._regi
+        self._regi
 
-	def register(self, function, priority):
-		if self.regi() == []:
-			self._regi.append((function, priority))
-		else:
-			for i in range(len(self._regi)):
-				fun, pri = self._regi[i]
-				if priority <= pri:
-					self._regi.insert(i, (function,priority))
+    def register(self, function, priority):
+        if self._regi:
+            for i in range(len(self._regi)):
+                fun, pri = self._regi[i]
+                if priority <= pri:
+                    self._regi.insert(i, (function,priority))
+        else:
+            print "resiakdfja;lskdfj;alskdfj"
+            self._regi.append((function, priority))
