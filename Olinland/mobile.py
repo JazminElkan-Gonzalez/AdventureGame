@@ -18,7 +18,8 @@ class MobileThing (Thing):
     def give (self,actor,target):
         if self in actor.inventory():
             self.drop(actor)
-            self.take(target)
+            # self.take(target)
+            target.accept(self, actor)
         else:
             actor.say("I dont have " + self.name())
 

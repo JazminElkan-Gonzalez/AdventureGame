@@ -112,6 +112,7 @@ class Person (MobileThing):    # Container...
         print actor.name(),'is not carrying',self.name()
         
     def accept (self,obj,source):
+        obj.move(self)
         self.say('Thanks, ' + source.name())
 
     def is_person (self):
