@@ -23,7 +23,7 @@ class Clock (object):
                 if priority <= pri:
                     self._regi.insert(i, (function,priority))
                     break
-                elif priority > pri:
+                elif i == len(self._regi) -1 and priority > pri:
                     self._regi.append((function, priority))
                     break
         else:
