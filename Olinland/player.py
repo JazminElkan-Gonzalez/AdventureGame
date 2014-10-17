@@ -33,7 +33,7 @@ class Player (Person):
                 else:
                     print person.name() + "'s inventory is empty"
         else:
-            print "no one is here. Do you need... help?"
+            print "No one is here. Do you need... help?"
         return things_around
 
    
@@ -76,9 +76,9 @@ class Player (Person):
             invent = ""
             for item in self.inventory():
                 invent = invent + item.name() + ", "
-            print "your inventroy is: " + invent 
+            print "Your inventory is: " + invent 
         else:
-            print "your inventory is empty"
+            print "Your inventory is empty"
         if exits:
             print 'Exits:', ', '.join([x for x in exits])
         else:
