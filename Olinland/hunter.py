@@ -9,9 +9,6 @@ class TrollHunter (NPC):
 		self._power = power
 		Player.clock.register(self.attack, 3)
 
-	def trolls_around(self):
-		return [x for x in self.location().contents() if x.is_troll()]
-
 	def attack(self, time):
 		trolls = self.trolls_around()
 		if trolls:

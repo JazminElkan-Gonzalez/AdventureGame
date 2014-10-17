@@ -11,7 +11,7 @@ class NPC (Person):
         Player.clock.register(self.move_and_take_stuff, 5)
         
     def move_and_take_stuff (self,time):
-        if not self.is_in_limbo():
+        if not self.is_in_limbo() and self._restlessness != 0:
             if random.randrange(self._restlessness) == 0:
                 self.move_somewhere()
             if random.randrange(self._miserly) == 0:

@@ -12,6 +12,7 @@ from homework import *
 from computer import *
 from hunter import *
 from ninja import *
+from butterfly import *
 
 
 REVERSE = {
@@ -92,6 +93,8 @@ def create_world ():
     TrollHunter('Storm-Bringer', oval, random.randint(1,5), 1, "Destroyer of Souls.")
     TrollHunter('Melvin', westh, random.randint(1,5), 100, "Is..Is that a freshmen?")
     BadNinja('Trogdor', oval, random.randint(1,5), "The Burninator.")
+    Butterfly('FlipFlap', oval, random.randint(1,2), "Eater of worlds. A caterpillar.")
+
     homeworks = ['hw-1', 
                  'hw-2',
                  'hw-3',

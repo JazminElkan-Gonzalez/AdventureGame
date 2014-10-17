@@ -14,7 +14,7 @@ class Clock (object):
         return self._time
 
     def regi(self):
-        self._regi
+        return self._regi
 
     def register(self, function, priority):
         if self._regi:
@@ -22,6 +22,9 @@ class Clock (object):
                 fun, pri = self._regi[i]
                 if priority <= pri:
                     self._regi.insert(i, (function,priority))
+                    break
+                elif priority > pri:
+                    self._regi.append((function, priority))
                     break
         else:
             self._regi.append((function, priority))

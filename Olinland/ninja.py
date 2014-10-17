@@ -1,6 +1,5 @@
 from player import *
 from npc import *
-import random
 
 class BadNinja (NPC):
 

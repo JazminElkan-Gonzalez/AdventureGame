@@ -34,8 +34,12 @@ class Person (MobileThing):    # Container...
         return [x for x in self.location().contents()
                     if x.is_person() and x is not self]
 
+    def trolls_around(self):
+        return [x for x in self.location().contents() if x.is_troll()]
+
     def stuff_around (self):
-        return [x for x in self.location().contents() if not x.is_person()]
+        if self.location().contents() != None:  #Fixing a glitch, maybe?
+            return [x for x in self.location().contents() if not x.is_person()]
 
 
     # this function should return everything that everyone in the
@@ -81,11 +85,10 @@ class Person (MobileThing):    # Container...
 
     def die (self):
         self.location().broadcast('An earth-shattering, soul-piercing scream is heard...')
-        self.destroy()
         if self._inventory:
             for item in self._inventory:
                 item.drop(self)
-        
+        self.destroy()        
 
     def enter_room (self):
         people = self.people_around()
@@ -94,6 +97,12 @@ class Person (MobileThing):    # Container...
 
     def leave_room (self):
         pass   # do nothing to reduce verbiage
+
+    def have_thing (self,t):
+        for c in self.inventory():
+            if c is t:
+                return True
+        return False
 
     def take (self,actor):
         actor.say('I am not strong enough to just take '+self.name())

@@ -25,8 +25,8 @@ class MobileThing (Thing):
 
     def drop (self,actor):
         if self in actor.inventory():
-            actor.inventory().remove(self)
-            self.move(actor)
+            # actor.inventory().remove(self)
+            self.move(actor.location())
             actor.say("I drop " + self._name)
         else:
             actor.say("I don't have a" + self.name())
