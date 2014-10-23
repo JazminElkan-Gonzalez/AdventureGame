@@ -12,7 +12,7 @@ class Butterfly (MobileThing):
 		self._state = "caterpillar"
 		self._restlessness = restlessness
 
-		Player.clock.register(self.change, 6)
+		Player.clock.register(self.change, 7)
 
 	def change(self, time):
 		self._countdown = self._countdown - 1

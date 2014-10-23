@@ -20,7 +20,7 @@ class MobileThing (Thing):
             self.drop(actor)
             target.accept(self, actor)
         else:
-            actor.say("I don;t have " + self.name())
+            actor.say("I don't have " + self.name())
 
     def drop (self,actor):
         if self in actor.inventory():
