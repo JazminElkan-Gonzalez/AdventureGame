@@ -52,7 +52,7 @@ class Player (Person):
                     for item in person.inventory():
                         things_around.append(item)
                         invent = invent + item.name() + ", "
-                    print person.name() + "'s inventroy is: " + invent 
+                    print person.name() + "'s inventory is: " + invent 
                 else:
                     print person.name() + "'s inventory is empty"
         else:
@@ -64,7 +64,7 @@ class Player (Person):
         for x in self.location().contents():
             if x.name() == name:
                 return x
-        for x in self.peek_around():
+        for x in Person.peek_around(self):
             if x.name() == name:
                 return x
         for x in self.inventory():
