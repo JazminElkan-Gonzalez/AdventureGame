@@ -74,7 +74,7 @@ def create_world ():
     Player('Blubbering-Fool', oval, "You're a Blubbering-Fool")
 
     # Radar('handy radar',mh353, "A nifty wifty little dood-dah.") 
-    Radar('handy radar',oval, "A nifty wifty little dood-dah.") 
+    Radar('handy radar',mh353, "A nifty wifty little dood-dah.") 
     Teleporter('Telepro!', ac113, "Olin Corp's Solution to all yopur telporting needs!!!") 
 
 

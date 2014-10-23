@@ -2,6 +2,7 @@ from person import *
 from clock import *
 
 import sys
+from room import *
 
 class Player (Person):
 
@@ -15,8 +16,8 @@ class Player (Person):
     def __init__ (self,name,loc,description):
         Person.__init__(self,name,loc,description)
         Player.me = self 
-        self._roomArray = []
-        self.rooms_around(loc)
+        # self._roomArray = []
+        # Room.rooms
 
 
     # Grab any kind of thing from player's location, 
@@ -25,23 +26,6 @@ class Player (Person):
 
     def getRoom(self,room,direction):
         return room.exits()[direction]
-
-    def rooms_around(self,room):
-        directionList = ['north',
-                         'south',
-                         'east',
-                         'west',
-                         'up',
-                         'down'
-                        ]
-        
-        for direction in directionList:
-            if direction in room.exits():
-                newRoom = self.getRoom(room, direction)
-                if newRoom not in self._roomArray:
-                    self._roomArray.append(newRoom)
-                    self.rooms_around(newRoom)
-
    
     def peek_around (self):
         things_around = []
@@ -70,7 +54,7 @@ class Player (Person):
         for x in self.inventory():
             if x.name() == name:
                 return x
-        for x in self._roomArray:
+        for x in Room.rooms:
             if x.name() == name:
                 return x 
         return None
