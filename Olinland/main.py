@@ -13,7 +13,7 @@ from computer import *
 from hunter import *
 from ninja import *
 from butterfly import *
-
+from teleporter import *
 
 REVERSE = {
     'north' : 'south',
@@ -38,22 +38,21 @@ def biconnect (fr,dir,to):
 
 
 def create_world ():
-    mh353 = Room('Riccardo Office', "Riccardo's office is on the 3rd floor of Milas Hall. ")
-    mh3rd = Room('Milas Hall Third Floor', "There are many professor's offices here")
-    mh2nd = Room('Milas Hall Second Floor', "There are musical instruments and rooms to offices.")
-    mh1st = Room('Milas Hall First Floor', "There is a grand set of stairs.")
+    mh353 = Room('Riccardo-Office', "Riccardo's office is on the 3rd floor of Milas Hall. ")
+    mh3rd = Room('Milas-Hall-Third-Floor', "There are many professor's offices here")
+    mh2nd = Room('Milas-Hall-Second-Floor', "There are musical instruments and rooms to offices.")
+    mh1st = Room('Milas-Hall-First-Floor', "There is a grand set of stairs.")
     oval = Room('Oval', "Smack in the center of Olin College.")
-    dhall = Room('Dining Hall', "Om nom nom.")
-
-    ac1st = Room('Academic Center First Floor', "Where dreams go to die.")
-    ac113 = Room('Academic Center 113', "The best class ever is taught here.")
-    cc1st = Room('Campus Center First Floor', "Contains the dining hall and nothing else of relevance.")
-    westh = Room('West Hall', "Only children live here. Why go here?")
-    easth1 = Room('East Hall 1', "What's that smell...")
-    easth2 = Room('East Hall 2', "Much color. Very art. Wow.")
-    easth3 = Room('East Hall 3', "Home sweet home.")
-    easth4 = Room('East Hall 4', "Too many stairs.")
-    babson = Room('Babson College', "Bro.")
+    dhall = Room('Dining-Hall', "Om nom nom.")
+    ac1st = Room('Academic-Center-First-Floor', "Where dreams go to die.")
+    ac113 = Room('Academic-Center-113', "The best class ever is taught here.")
+    cc1st = Room('Campus-Center-First-Floor', "Contains the dining hall and nothing else of relevance.")
+    westh = Room('West-Hall', "Only children live here. Why go here?")
+    easth1 = Room('East-Hall-1', "What's that smell...")
+    easth2 = Room('East-Hall-2', "Much color. Very art. Wow.")
+    easth3 = Room('East-Hall-3', "Home sweet home.")
+    easth4 = Room('East-Hall-4', "Too many stairs.")
+    babson = Room('Babson-College', "Bro.")
 
     biconnect(mh353, 'east',  mh3rd)
     biconnect(mh3rd, 'down',  mh2nd)
@@ -76,6 +75,9 @@ def create_world ():
 
     # Radar('handy radar',mh353, "A nifty wifty little dood-dah.") 
     Radar('handy radar',oval, "A nifty wifty little dood-dah.") 
+    Teleporter('Telepro!', ac113, "Olin Corp's Solution to all yopur telporting needs!!!") 
+
+
     Thing('blackboard', ac113, "Singing in the dead of the night.")
     Thing('lovely-trees', oval, "You must be seeing things.")
     Thing('grass', oval, "Not removable.")

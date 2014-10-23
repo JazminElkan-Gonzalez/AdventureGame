@@ -1,5 +1,6 @@
 import sys
 from player import *
+from teleporter import *
 
 SAME_ROUND = 1
 NEXT_ROUND = 2  
@@ -22,8 +23,10 @@ class Verb (object):
                 return SAME_ROUND
             wo2 = Player.me.thing_named(input[1])
             if wo2 is None:
-                print 'Word',input[1],'not understood'
-                return SAME_ROUND
+                wo2 = Teleporter.find_room(input[1])
+                if wo2 is None:
+                    print 'Word',input[1],'not understood'
+                    return SAME_ROUND
             return self.action2(wo1,wo2)
 
     def action0 (self):
@@ -95,6 +98,10 @@ class Use (Verb):
 
     def action1 (self,obj):
         obj.use(Player.me)
+        return SAME_ROUND
+
+    def action2 (self,obj, location):
+        obj.use(Player.me, location)
         return SAME_ROUND
 
 

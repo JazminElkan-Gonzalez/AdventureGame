@@ -15,10 +15,33 @@ class Player (Person):
     def __init__ (self,name,loc,description):
         Person.__init__(self,name,loc,description)
         Player.me = self 
+        self._roomArray = []
+        self.rooms_around(loc)
+
 
     # Grab any kind of thing from player's location, 
     # given its name.  The thing may be in the possession of
     # the place, or in the possession of a person at the place.
+
+    def getRoom(self,room,direction):
+        return room.exits()[direction]
+
+    def rooms_around(self,room):
+        directionList = ['north',
+                         'south',
+                         'east',
+                         'west',
+                         'up',
+                         'down'
+                        ]
+        
+        for direction in directionList:
+            if direction in room.exits():
+                newRoom = self.getRoom(room, direction)
+                if newRoom not in self._roomArray:
+                    self._roomArray.append(newRoom)
+                    self.rooms_around(newRoom)
+
    
     def peek_around (self):
         things_around = []
@@ -47,6 +70,9 @@ class Player (Person):
         for x in self.inventory():
             if x.name() == name:
                 return x
+        for x in self._roomArray:
+            if x.name() == name:
+                return x 
         return None
 
     def look_around (self):

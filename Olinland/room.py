@@ -37,6 +37,8 @@ class Room (WObject): #,Container):
     def is_room (self):
         return True
 
+    def take(self, actor):
+        actor.say("I can't take a room")
 
     def have_thing (self,t):
         for c in self.contents():
