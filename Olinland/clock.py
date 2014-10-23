@@ -28,3 +28,7 @@ class Clock (object):
                     break
         else:
             self._regi.append((function, priority))
+
+    def unregister(self, function):
+        if function in self._regi:
+            self._regi.remove(function)

@@ -15,6 +15,7 @@ from ninja import *
 from butterfly import *
 from teleporter import *
 from follower import *
+from token import *
 
 REVERSE = {
     'north' : 'south',
@@ -75,8 +76,9 @@ def create_world ():
     Player('Blubbering-Fool', oval, "You're a Blubbering-Fool")
 
     # Radar('handy radar',mh353, "A nifty wifty little dood-dah.") 
-    Radar('handy radar',mh353, "A nifty wifty little dood-dah.") 
+    Radar('handy radar',oval, "A nifty wifty little dood-dah.") 
     Teleporter('Telepro!', ac113, "Olin Corp's Solution to all yopur telporting needs!!!") 
+    Token('token', oval, "Give this to an NPC to create your own follower.")
 
 
     Thing('blackboard', ac113, "Singing in the dead of the night.")
@@ -97,7 +99,7 @@ def create_world ():
     TrollHunter('Melvin', westh, random.randint(1,5), 100, "Is..Is that a freshmen?")
     BadNinja('Trogdor', oval, random.randint(1,5), "The Burninator.")
     Butterfly('FlipFlap', oval, random.randint(1,2), "Eater of worlds. A caterpillar.")
-    Follower('Kouhai', oval, 2, random.randint(1,5), Player.me, "A loyal follower.")
+    # Follower('Kouhai', oval, 2, random.randint(1,5), Player.me, "A loyal follower.")
 
     homeworks = ['hw-1', 
                  'hw-2',

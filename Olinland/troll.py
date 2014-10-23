@@ -23,4 +23,5 @@ class Troll (NPC):
     def is_troll (self):
         return True
 
-
+    def deregister(self):
+        Player.clock.unregister((self.eat_people, 4))

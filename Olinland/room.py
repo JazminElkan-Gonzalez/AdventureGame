@@ -1,7 +1,6 @@
 from wobject import *
 from player import *
 
-
 class Room (WObject): #,Container):
 
     rooms = []

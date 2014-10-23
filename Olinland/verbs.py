@@ -1,6 +1,7 @@
 import sys
 from player import *
-from teleporter import *
+# from teleporter import *
+from room import *
 
 SAME_ROUND = 1
 NEXT_ROUND = 2  
@@ -23,7 +24,7 @@ class Verb (object):
                 return SAME_ROUND
             wo2 = Player.me.thing_named(input[1])
             if wo2 is None:
-                wo2 = Teleporter.find_room(input[1])
+                wo2 = self.find_room(input[1])
                 if wo2 is None:
                     print 'Word',input[1],'not understood'
                     return SAME_ROUND
@@ -40,6 +41,11 @@ class Verb (object):
     def action2 (self,wo1,wo2):
         print 'Input not understood'
         return SAME_ROUND
+
+    def find_room(self, room):
+        for x in Room.rooms:
+            if x.name() == room:
+                return x
 
 
 

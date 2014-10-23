@@ -1,8 +1,7 @@
 from person import *
 from clock import *
-
 import sys
-from room import *
+
 
 class Player (Person):
 
@@ -16,16 +15,11 @@ class Player (Person):
     def __init__ (self,name,loc,description):
         Person.__init__(self,name,loc,description)
         Player.me = self 
-        # self._roomArray = []
-        # Room.rooms
 
 
     # Grab any kind of thing from player's location, 
     # given its name.  The thing may be in the possession of
     # the place, or in the possession of a person at the place.
-
-    def getRoom(self,room,direction):
-        return room.exits()[direction]
    
     def peek_around (self):
         things_around = []
@@ -54,9 +48,6 @@ class Player (Person):
         for x in self.inventory():
             if x.name() == name:
                 return x
-        for x in Room.rooms:
-            if x.name() == name:
-                return x 
         return None
 
     def look_around (self):

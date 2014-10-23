@@ -19,3 +19,5 @@ class BadNinja (NPC):
                     self.say("No, no, no! It's all wrong, WRONG!")
                     self.say("Burn, baby, burn!")
 
+    def deregister(self):
+        Player.clock.unregister((self.take_homework, 3))        

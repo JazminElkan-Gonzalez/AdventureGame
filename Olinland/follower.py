@@ -1,14 +1,19 @@
-from npc import *
+from player import *
+from person import *
+import random
 
-class Follower (NPC):
-
-    def __init__ (self,name,loc,restlessness,miserly,leader,description):
-        NPC.__init__(self,name,loc,restlessness,miserly,description)
+class Follower (Person):
+    def __init__ (self,name,loc,restlessness,miserly,leader,health,inventory,description):
+        Person.__init__(self,name,loc,description)
         self._restlessness = restlessness
         self._miserly = miserly
         self._leader = leader
         self._recentlyLeft = True
-        # Player.clock.register(self.move_and_take_stuff, 6)
+
+        self._health = health
+        self._inventory = inventory
+
+        Player.clock.register(self.move_and_take_stuff, 6)
         
     def move_and_take_stuff (self,time):
         if not self.is_in_limbo() and self._restlessness != 0:
@@ -19,6 +24,14 @@ class Follower (NPC):
                 self._leader.say("Finally, I've left " + self.name() + " behind!")
             if random.randrange(self._miserly) == 0:
                 self.take_something()
+
+    def take_something (self):
+        everything = []
+        everything.extend(self.stuff_around())
+        everything.extend(self.peek_around())
+        if everything:
+            something = random.choice(everything)
+            something.take(self)
 
     def move_somewhere(self):
         if self._leader.location() != self.location():
