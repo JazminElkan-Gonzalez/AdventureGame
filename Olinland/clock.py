@@ -16,6 +16,7 @@ class Clock (object):
     def regi(self):
         return self._regi
 
+    #A function and it's priority will be added to the registration list
     def register(self, function, priority):
         if self._regi:
             for i in range(len(self._regi)):
@@ -29,6 +30,7 @@ class Clock (object):
         else:
             self._regi.append((function, priority))
 
-    def unregister(self, function):
-        if function in self._regi:
-            self._regi.remove(function)
+    #In case a function needs to be unregistered
+    def unregister(self, functionTuple):
+        if functionTuple in self._regi:
+            self._regi.remove(functionTuple)

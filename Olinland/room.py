@@ -36,6 +36,8 @@ class Room (WObject): #,Container):
     def is_room (self):
         return True
 
+    #Rooms are now checked in verbs, 
+    #so we had to make sure they couldn't be taken or error the program
     def take(self, actor):
         actor.say("I can't take a room")
 

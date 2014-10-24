@@ -36,7 +36,6 @@ class Player (Person):
         else:
             print "No one is here. Do you need... help?"
         return things_around
-
    
     def thing_named (self,name):
         for x in self.location().contents():

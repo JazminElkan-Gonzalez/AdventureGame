@@ -23,7 +23,7 @@ class Verb (object):
                 print 'Word',input[0],'not understood'
                 return SAME_ROUND
             wo2 = Player.me.thing_named(input[1])
-            if wo2 is None:
+            if wo2 is None: #Added ability to look through rooms for teleporter's functionality
                 wo2 = self.find_room(input[1])
                 if wo2 is None:
                     print 'Word',input[1],'not understood'
@@ -42,11 +42,11 @@ class Verb (object):
         print 'Input not understood'
         return SAME_ROUND
 
+    #method that returns room if given room name
     def find_room(self, room):
         for x in Room.rooms:
             if x.name() == room:
                 return x
-
 
 
 class Quit (Verb):
@@ -106,6 +106,7 @@ class Use (Verb):
         obj.use(Player.me)
         return SAME_ROUND
 
+    #Added functionality to have second "use" parameter for teleportation
     def action2 (self,obj, location):
         obj.use(Player.me, location)
         return SAME_ROUND
