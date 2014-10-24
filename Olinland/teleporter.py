@@ -24,8 +24,8 @@ class Teleporter (MobileThing):
         actor.location().del_thing(actor)   #similar functionality to mobileThing.move()
         location.add_thing(actor)
         actor._location = location
-        self.say(location, "Thank you for using " + self.name() + ". Have a nice day! If you experience any discomfort, such as missing atoms, please contact Olin Corp.")
         self.say(location, "You are now in " + actor._location.name())
+        self.say(location, "Thank you for using " + self.name() + ". Have a nice day! If you experience any discomfort, such as missing atoms, please contact Olin Corp.")
 
     def telportSelf(self, time):
         if self._restlessness != 0:
