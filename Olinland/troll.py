@@ -19,9 +19,9 @@ class Troll (NPC):
             else:
                 self.location().report(self.name() + "'s belly rumbles")
 
-
     def is_troll (self):
         return True
 
     def deregister(self):
         Player.clock.unregister((self.eat_people, 4))
+        Player.clock.unregister((self.move_and_take_stuff, 5))

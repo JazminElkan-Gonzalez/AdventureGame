@@ -27,7 +27,8 @@ class Person (MobileThing):    # Container...
         loc = self.location()
         loc.report(self.name()+' says -- '+msg)
 
-    def report(self, msg):
+    #To account for objects leaving your inventory (like a teleporter)
+    def report(self,msg):
         self.say(msg)
 
     def have_fit (self):
@@ -91,7 +92,11 @@ class Person (MobileThing):    # Container...
         if self._inventory:
             for item in self._inventory:
                 item.drop(self)
-        self.destroy()        
+        self.destroy()   
+        self.deregister()   
+
+    def deregister(self):
+        pass
 
     def enter_room (self):
         people = self.people_around()

@@ -41,4 +41,5 @@ class Professor (NPC):
                         self.give(obj, source)
 
             def deregister(self):
-                Player.clock.unregister((self.lecture, 2))        
+                Player.clock.unregister((self.lecture, 2))
+                Player.clock.unregister((self.move_and_take_stuff, 5))

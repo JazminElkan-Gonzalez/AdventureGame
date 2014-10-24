@@ -32,8 +32,9 @@ class NPC (Person):
             something = random.choice(everything)
             something.take(self)
 
+    #Turns a NPC into a follower class
     def become_follower(self, leader):
-        Player.clock.unregister((self.move_and_take_stuff, 5))
+        self.deregister()
         Follower(self.name(), self.location(), self._restlessness, self._miserly, 
             leader, self.health(), self.inventory(), self.description())
         leader.say(self.name() + " has become my follower!")
@@ -41,6 +42,9 @@ class NPC (Person):
         
         self._location.del_thing(self)
         self._location = None
+
+    def deregister(self):
+        Player.clock.unregister((self.move_and_take_stuff, 5))
 
     def die (self):
         self.say('SHREEEEEK! I, uh, suddenly feel very faint...')

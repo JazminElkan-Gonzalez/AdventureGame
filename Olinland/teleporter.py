@@ -3,8 +3,9 @@ from player import *
 from room import *
 import random
 
-
 class Teleporter (MobileThing):
+    #A class that will teleport the user to their chosen location.
+    #functionality: "use [teleporter.name()] [location.name()]"
 
     def __init__ (self,name,loc, restlessness, description):
         Thing.__init__(self,name,loc,description)
@@ -20,7 +21,7 @@ class Teleporter (MobileThing):
         actor.say("Oh no. What's That Rumbling Sound???")
         print "POOF"
         actor.say("AAAAAAHHHHHHHHHHHHHH")
-        actor.location().del_thing(actor)
+        actor.location().del_thing(actor)   #similar functionality to mobileThing.move()
         location.add_thing(actor)
         actor._location = location
         self.say(location, "Thank you for using " + self.name() + ". Have a nice day! If you experience any discomfort, such as missing atoms, please contact Olin Corp.")
@@ -32,4 +33,3 @@ class Teleporter (MobileThing):
                 self.say(self.location(), "Poof!")
                 self.move(random.choice(Room.rooms))
                 self.say(self.location(), "Whoosh!")
-                    
