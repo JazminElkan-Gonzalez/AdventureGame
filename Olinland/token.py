@@ -1,5 +1,6 @@
 from mobile import *
 from room import *
+import random
 
 class Token (MobileThing):
 
@@ -16,3 +17,13 @@ class Token (MobileThing):
         else:
             actor.say("I don't have " + self.name())
 
+    def take (self,actor):
+        if actor == Player.me:
+                self.move(actor)
+                actor.say("I take " + self._name)
+        else:
+            self.location().report(actor.name() + " reaches for the Token but before be can reach it it mysteriously disappears")
+            exits = self.location().exits()
+            if exits:
+                dire = random.choice(exits.keys())
+                self.move(exits[dire])

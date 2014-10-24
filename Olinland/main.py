@@ -77,7 +77,7 @@ def create_world ():
 
     # Radar('handy radar',mh353, "A nifty wifty little dood-dah.") 
     Radar('handy radar',oval, "A nifty wifty little dood-dah.") 
-    Teleporter('Telepro!', ac113, "Olin Corp's Solution to all yopur telporting needs!!!") 
+    Teleporter('Telepro!', ac113, 2, "Olin Corp's Solution to all yopur telporting needs!!!") 
     Token('token', oval, "Give this to an NPC to create your own follower.")
 
 

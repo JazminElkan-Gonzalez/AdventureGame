@@ -27,6 +27,9 @@ class Person (MobileThing):    # Container...
         loc = self.location()
         loc.report(self.name()+' says -- '+msg)
 
+    def report(self, msg):
+        self.say(msg)
+
     def have_fit (self):
         self.say('Yaaaaah! I am upset!')
 
